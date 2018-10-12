@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <Pane prefHeight="640.0" prefWidth="1028.0" GridPane.rowIndex="1">
+         <children>
+            <ToolBar layoutY="-10.0" prefHeight="39.0" prefWidth="1028.0">
+              <items>
+                 <Button fx:id="btn_open" minWidth="25" mnemonicParsing="false" onAction="#fileOpen">
+                    <tooltip><Tooltip text="Открыть базу знаний" /></tooltip>
+                 </Button>
+                 <Button fx:id="btn_start" disable="true" minWidth="25" mnemonicParsing="false" onAction="#startSystem">
+                    <tooltip><Tooltip text="Запустить консультацию" /></tooltip>
+                 </Button>
+                 <Button fx:id="btn_stop" disable="true" minWidth="25" mnemonicParsing="false" onAction="#stopSystem">
+                    <tooltip><Tooltip text="Остановить консультацию" /></tooltip>
+                 </Button>
+                 <Button fx:id="btn_back" disable="true" minWidth="25" mnemonicParsing="false" onAction="#backSystem">
+                    <tooltip><Tooltip text="Отменить ответ" /></tooltip>
+                 </Button>
+                 <Button fx:id="btn_save" disable="true" minWidth="25" mnemonicParsing="false" onAction="#saveSystem">
+                    <tooltip><Tooltip text="Сохранить результаты консультации" /></tooltip>
+                 </Button>
+                  <Label fx:id="top_label" text="Откройте файл">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font></Label>
+                  <Label text="Кодировка:" />
+                  <ChoiceBox fx:id="codeText" prefWidth="150.0" />
+              </items>
+            </ToolBar>
+            <ListView fx:id="hypotize_list" layoutX="7.0" layoutY="105.0" prefHeight="212.0" prefWidth="500.0" />
+            <VBox layoutX="9.0" layoutY="29.0" prefHeight="45.0" prefWidth="1010.0">
+               <children>
+                  <Label fx:id="base_name" text="Название базы знаний" />
+                  <Label fx:id="base_author" text="Автор базы знаний" />
+                  <Label fx:id="base_description" text="Описание базы знаний" />
+               </children>
+            </VBox>
+            <ListView fx:id="answer_list" layoutX="507.0" layoutY="80.0" prefHeight="165.0" prefWidth="513.0" />
+            <TextArea fx:id="main_text" editable="false" layoutX="507.0" layoutY="245.0" prefHeight="72.0" prefWidth="513.0" text="Откройте базу знаний" />
+            <Label layoutX="6.0" layoutY="320.0" text="Сортировка:" />
+            <RadioButton fx:id="hypotize_sort_name" disable="true" layoutX="7.0" layoutY="335.0" mnemonicParsing="false" onAction="#sortName" text="По имени">
+               <toggleGroup>
+                  <ToggleGroup fx:id="hypotize_sort" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="hypotize_sort_probability" disable="true" layoutX="108.0" layoutY="335.0" mnemonicParsing="false" onAction="#sortProbability" selected="true" text="По вероятности" toggleGroup="$hypotize_sort" />
+            <ListView fx:id="questions_list" layoutX="6.0" layoutY="362.0" prefHeight="271.0" prefWidth="500.0" />
+            <Label layoutX="514.0" layoutY="328.0" text="Коэффициент уверенности:" />
+            <Slider fx:id="anwer_scroll" blockIncrement="0.1" layoutX="507.0" layoutY="362.0" majorTickUnit="0.1" max="1.0" min="-1.0" minorTickCount="0" prefHeight="15.0" prefWidth="471.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            <TextField fx:id="base_hypotize_name" editable="false" layoutX="7.0" layoutY="80.0" prefHeight="25.0" prefWidth="500.0" promptText="Вопросы:" />
+            <TextField fx:id="value_of_answer" layoutX="709.0" layoutY="323.0" prefHeight="25.0" prefWidth="311.0" text="0" />
+            <Button fx:id="okAnswer" disable="true" layoutX="982.0" layoutY="350.0" mnemonicParsing="false" onAction="#answerOk" prefHeight="25.0" prefWidth="37.0" text="Ок" />
+         </children>
+         <stylesheets>
+             <URL value="@css/main.css" />
+         </stylesheets>
+      </Pane>
+   </children>
+</GridPane>
